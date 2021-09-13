@@ -1,0 +1,33 @@
+:root {
+    font-family: 'Roboto Slab', serif;
+    --text-dark-bg: #431678;
+    --text-primary-bg: #5d4778;
+    --text-color: #b4b8b5;
+}
+
+.scrolling-header {
+    background-color: var(--text-dark-bg);
+    color: #f2da3a;
+    padding: 50px, 10px;
+    text-align: center;
+    font-size: 90px;
+    font-weight: bold;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: 0.3s;
+}
+
+body {
+    background-color: var(--text-primary-bg);
+}
+
+.site-body {
+    color: var(--text-color);
+    text-align: left;
+    font-family: 'Roboto Slate', serif;
+    font-size: 24px;
+    margin-top: 150px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
