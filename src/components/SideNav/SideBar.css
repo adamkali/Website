@@ -20,13 +20,12 @@
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 75px;
   transition: 850ms;
 }
 
 .nav-menu.active {
-  left: 0;
+  width: 250px;
   transition: 350ms;
 }
 
@@ -34,16 +33,17 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  padding: 8px 0px 8px 16px;
+  padding: 8px 0px 8px 8px;
   list-style: none;
-  height: 6 0px;
+  height: 60px;
+  transition: 350ms
 }
 
 .nav-text.hide {
   display: flex;
   justify-content: start;
   align-items: center;
-  padding: 8px 0px 8px 8px;
+  padding: 0px 0px 8px 16px;
   list-style: none;
   height: 60px;
   transition: 350ms;
@@ -59,6 +59,7 @@
   align-items: center;
   padding: 0 16px;
   border-radius: 4px;
+  list-style: none;
 }
 
 .nav-text.hide a{
@@ -69,8 +70,8 @@
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 16px;
-  border-radius: 4px;
+  padding: 0px 16px;
+  list-style: none;
 }
 
 .nav-text a:hover {
