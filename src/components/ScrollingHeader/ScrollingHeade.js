@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import SideNav from "../SideNav/SideNav";
 import '../../static/site.css'
 
 function ScrollingHeade() {
@@ -8,6 +9,7 @@ function ScrollingHeade() {
       <Link to='/' className='header-text'>
         Accounts of the Occult
       </Link>
+      <SideNav/>
     </div>
   )
 }

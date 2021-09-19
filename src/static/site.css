@@ -8,24 +8,31 @@
 .scrolling-header {
     background-color: var(--text-dark-bg);
     color: #e6de8b;
-    padding: 50px, 10px;
     text-align: center;
-    font-size: 65px;
+    font-size: 60px;
     font-weight: bold;
     position: fixed;
-    display: flex;
     text-decoration: none;
     width: 100%;
     top: 0;
-    transition: 0.3s;
-}
+    left: -2px
+ }
 
-.header-text a {
-    padding: 50px, 10px;
+.header-text {
     text-decoration: none;
     color: #e6de8b;
-    display: flex;
+    width: 100%;
+    display: block;
     text-align: center;
+    top: 0;
+    transition: 250ms;
+}
+
+.header-text:hover {
+    font-size: 70px;
+    color:#e6de8b;
+    transition: 250ms;
+    background-color: #b713e9;
 }
 
 body {
@@ -38,6 +45,6 @@ body {
     font-family: 'Roboto Slate', serif;
     font-size: 24px;
     margin-top: 150px;
-    margin-left: 200px;
+    margin-left: 260px;
     margin-right: 200px;
 }

@@ -1,14 +1,7 @@
-import { FaHome, FaBook, FaMoneyBillWaveAlt } from 'react-icons/fa';
+import { FaBook, FaMoneyBillWaveAlt } from 'react-icons/fa';
 import { IoLibrary } from 'react-icons/io5'
 
 export const sidebarData = [
-    {
-        title: 'Home',
-        path: '/',
-        icon: <FaHome/>,
-        cName: 'nav-text',
-        cNameHide: 'nav-text.hide'
-    },
     {
         title: 'Newest Release',
         path: '/newest_release',
