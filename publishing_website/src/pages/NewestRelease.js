@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom'
 
 export default class NewestRelease extends Component {
     
-    newRelase = this.props.globalStore;
+    newRelaseAsJson = this.props.globalStore;
+    //newRelaseAsJson = JSON.parse(this.newRelase)
     
     render() {
         return (
             <div>
-                <h2>Title: {this.newRelase.title}</h2>
-                <p><b>Description</b> {this.newRelase.description}</p>
-                <Link className='publication-link'>{this.newRelase.link}</Link>
+                <h2>Title: {this.newRelaseAsJson['title']}</h2>
+                <p><b>Description</b> {this.newRelaseAsJson.description}</p>
+                <Link className='publication-link'>{this.newRelaseAsJson.link}</Link>
             </div>
         )
     }

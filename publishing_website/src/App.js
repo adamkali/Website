@@ -14,38 +14,29 @@ class App extends Component {
     super(props);
     this.state = {
       publicationList: [],
-      recentPublication: {},
+      isLoading: true,
     }
   }
-
-  componentDidMount() {
-    this.refreshList();
-    this.getRecent();
+  getPublications = async () => {
+    const data = await axios.get("http://localhost:8000/api/publications",
+      );
+    console.log(data)
+    this.setState({ publicationList: data, isLoading: false})
   }
-
-  refreshList = () => {
-    axios.get("/api/publications")
-        .then((res) => this.setState({ publicationList: res.data }) )
-        .catch((err) => console.log(err))
-  };
-
-  getRecent = () => {
-    const data = this.mostRecent(this.state.publicationList);
-    this.setState({ recentPublication: data });
-    console.log(data);
-  };
-
+  componentDidMount() {
+    console.log('hello')
+    this.getPublications();
+  }
   mostRecent = (jsonData) => { 
-    var mostRecentJsonElement = jsonData[0]
+    var mostRecentJsonElement = Object.keys(jsonData)[0]
     for (let index = 1; index < jsonData.length; index++) {
-        const jsonElement = jsonData[index];
+        const jsonElement = Object.keys(jsonData)[index];
         if ( jsonElement.pub_id === this.compare(mostRecentJsonElement, jsonElement).pub_id ) {
             mostRecentJsonElement = jsonElement;
         }
     }
     return mostRecentJsonElement;        
-};
-
+  };
   compare = (jsonData1, jsonData2) => {
     const date1Arr = jsonData1.pub_date.split("-");
     const date2Arr = jsonData2.pub_date.split("-");
@@ -60,7 +51,6 @@ class App extends Component {
     }
     console.log('An error has occured...')
   };
-
   render() {
     return (
       <div className="App">
@@ -68,12 +58,11 @@ class App extends Component {
           <ScrollingHeade/>
           <Switch>
             <Route exact path='/' component={withRouter(Home)}/>
-            <Route path='/Newest_Release' render={(props) => <NewestRelease gloabalStore={this.recentPublication} {...props}/> }/>
+            <Route path='/Newest_Release' render={(props) => <NewestRelease gloabalStore={this.mostRecent(this.publicationList)} {...props}/> }/>
             <Route path='/Support' component={withRouter(Support)}/>
           </Switch>
         </Router>
       </div>
     );}
 }
-
 export default App;
