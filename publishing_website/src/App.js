@@ -4,12 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { withRouter } from "react-router";
 import Home from './pages/Home';
 import Support from './pages/Support'
-import { Component, useState, useEffect } from 'react';
+import { Component } from 'react';
 import axios from "axios";
 import NewestRelease from './pages/NewestRelease';
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -18,9 +17,8 @@ class App extends Component {
     }
   }
   getPublications = async () => {
-    const data = await axios.get("http://localhost:8000/api/publications",
-      );
-    console.log(data)
+    const { data } = await axios.get("http://localhost:8000/api/publications");
+    console.log(data);
     this.setState({ publicationList: data, isLoading: false})
   }
   componentDidMount() {
